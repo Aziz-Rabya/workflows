@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Configure Git
         run: |
@@ -21,7 +21,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Create empty commit
-        run: git commit --allow-empty -m "Daily commit"
+        run: git commit --allow-empty -m "Daily commit $(date -u +'%Y-%m-%d %H:%M:%S')"
 
       - name: Push
         run: git push
